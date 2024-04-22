@@ -2,11 +2,15 @@
 Maze implementation.
 """
 
+from library import level1_collectibles
+
 
 class Maze:
     """
     Maze with basic play functionality.
 
+    Attributes:
+        _score: An int representing the player's score.
     """
 
     def __init__(self, level):
@@ -18,18 +22,23 @@ class Maze:
         self._jumpscare = False
         self._touching_wall = False
         self._finish_level = False
+        self._collectibles = {}
 
     def collectibles_locations(self):
         """
         Get locations of collectibles based on level.
         """
+        if self._level == 1:
+            self._collectibles = level1_collectibles
 
-    def collectible_picked_up(self):
+    def check_collectible(self, x_location, y_location):
         """
         When a collectible is picked up, remove it from the board and add
-        points to the player's score. If the correct number of points are
-        reached, trigger the jumpscare.
+        points to the player's score.
         """
+        if (x_location, y_location) in self._collectibles:
+            self._collectibles[(x_location, y_location)] = True
+            self._score += 1
 
     def get_maze(self):
         """
