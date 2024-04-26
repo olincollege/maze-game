@@ -35,3 +35,7 @@ class PygameController(MazeController):
     Extending MazeController to control the status of the TicTacToe board using
         pygame interface.
     """
+
+    # FUNCTIONS TO IMPLEMENT
+    # get mouse position
+    # get mouse click for start button ya

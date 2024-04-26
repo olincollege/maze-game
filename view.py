@@ -40,3 +40,10 @@ class PygameView(MazeView):
         """
         Show the current state of the maze.
         """
+
+    # display board
+    # visuals and stuff
+    # make a start button at the beginning
+    # render all the collectibles
+    # render the mouse character
+    # jumpscare that breaks out of game loop and display image

@@ -48,8 +48,10 @@ class Maze:
             player is located
         """
         if (x_location, y_location) in self._collectibles:
-            self._collectibles[(x_location, y_location)] = True
+            self._collectibles[(x_location, y_location)] = False
             self._score += 1
+
+            # Somehow stop showing the image after this ish
 
     def get_maze(self):
         """
@@ -67,3 +69,6 @@ class Maze:
         """
         location = ()
         return f"The player location is:{location}\nThe amount of points collected is:{self._score}\nThe current level is:{self._level}"
+
+    # we are going to have to call get mouse position to check if in boundaries
+    # hella pygame
