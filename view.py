@@ -2,7 +2,10 @@
 Maze game view.
 """
 
+import pygame
+import csv
 from abc import ABC, abstractmethod
+from maze import get_maze
 
 
 class MazeView(ABC):
@@ -36,14 +39,30 @@ class PygameView(MazeView):
         interface.
     """
 
+    def __init__(self, level=1):
+        pygame.init()
+        self._level = level
+        self._screen = pygame.display.set_mode((800, 600))
+        pygame.display.set_caption("Maze Game")
+
     def draw(self):
         """
         Show the current state of the maze.
         """
 
-    # display board
-    # visuals and stuff
-    # make a start button at the beginning
-    # render all the collectibles
-    # render the mouse character
-    # jumpscare that breaks out of game loop and display image
+        # display board
+        # visuals and stuff
+        # make a start button at the beginning
+        # render all the collectibles
+        # render the mouse character
+        # jumpscare that breaks out of game loop and display image
+        world_data = []
+        for row in range(19):
+            r = [-1] * 19
+            world_data.append(r)
+        # load in level data
+        with open(f"level_{level}.csv", newline="") as csvfile:
+            reader = csv.reader(csvfile, delimiter=",")
+            for x, row in enumerate(reader):
+                for y, tile in enumerate(row):
+                    world_data[x][y] = int(tile)
