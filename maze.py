@@ -2,6 +2,7 @@
 Maze implementation.
 """
 
+import pygame
 from library import level1_collectibles
 from library import level2_collectibles
 from library import level3_collectibles
@@ -84,7 +85,16 @@ class Maze:
         location = ()
         return (f"The player location is:{location}\n
                 The amount of points collected is:{self._score}\n
-                The current level is:{self._level}")
+                The current level is:{self._level}"
+                )
+    
+    def get_position(self):
+        """
+        Returns the current position of the player
+        """
+        pass
+
+    def 
 
     # we are going to have to call get mouse position to check if in boundaries
     # hella pygame
