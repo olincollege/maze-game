@@ -30,9 +30,15 @@ class MazeView(ABC):
         return self._board
 
     @abstractmethod
-    def draw(self, mouse_position, timer):
+    def character(self, mouse_position, timer):
         """
-        Implementations of this method should display a copy of the board.
+        Implementations of this method should display the character's location.
+        """
+
+    @abstractmethod
+    def button(self, x, y, image):
+        """
+        Implementations of this method should display a button.
         """
 
 
@@ -48,17 +54,27 @@ class PygameView(MazeView):
         self._screen = pygame.display.set_mode([WIDTH, HEIGHT])
         pygame.display.set_caption("Maze Game")
 
-    def draw(self, mouse_position, timer):
+    def character(self, mouse_position, timer):
         """
-        Show the current state of the maze.
+        Show the player's position.
         """
         self._screen.fill("white")
         timer.tick(FPS)
-        pygame.draw.circle(self._screen, "red", mouse_position, 10)
+        pygame.draw.circle(self._screen, "pink", mouse_position, 10)
         pygame.display.flip()
-        # display board
-        # visuals and stuff
-        # make a start button at the beginning
-        # render all the collectibles
-        # render the mouse character
-        # jumpscare that breaks out of game loop and display image
+
+    def button(self, x, y, image, surface):
+        """
+        Display a button.
+        """
+        self.rect = image.get_rect()
+        self.rect.topleft = (x, y)
+
+        surface.blit(self.image, (self.rect.x, self.rect.y))
+
+    # display board
+    # visuals and stuff
+    # make a start button at the beginning
+    # render all the collectibles
+    # render the mouse character
+    # jumpscare that breaks out of game loop and display image
