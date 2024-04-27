@@ -2,6 +2,7 @@
 Maze controller.
 """
 
+import pygame
 from abc import ABC, abstractmethod
 
 
@@ -35,6 +36,13 @@ class PygameController(MazeController):
     Extending MazeController to control the status of the TicTacToe board using
         pygame interface.
     """
+
+    def move(self):
+        """
+        Get the mouse position so that the player can move!!!
+        """
+        mouse_position = pygame.mouse.get_pos()
+        return mouse_position
 
     # FUNCTIONS TO IMPLEMENT
     # get mouse click for start button ya
