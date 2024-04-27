@@ -37,5 +37,4 @@ class PygameController(MazeController):
     """
 
     # FUNCTIONS TO IMPLEMENT
-    # get mouse position
     # get mouse click for start button ya

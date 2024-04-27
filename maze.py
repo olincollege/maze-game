@@ -82,27 +82,20 @@ class Maze:
         """
         Returns a string with the player location, amount of points, and level.
         """
-        location = ()
-<<<<<<< HEAD
-        return (f"The player location is:{location}\n
+        return (f"The player location is:{self.get_position()}\n
                 The amount of points collected is:{self._score}\n
                 The current level is:{self._level}"
                 )
     
     def get_position(self):
         """
-        Returns the current position of the player
+        Returns a tuple of the current position of the player
         """
-        pass
+        x, y = pygame.mouse.get_pos()
+        pos = (x, y) 
+        return pos
 
-    def 
-=======
-        return (
-            f"The player location is:{location}\n"
-            "The amount of points collected is:{self._score}\n"
-            "The current level is:{self._level}"
-        )
->>>>>>> 3d807b717b8f5d5aaaaa190b678aa0fb3eb86d80
+    
 
     # we are going to have to call get mouse position to check if in boundaries
     # hella pygame
