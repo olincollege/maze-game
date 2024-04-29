@@ -3,9 +3,6 @@ Maze implementation.
 """
 
 import pygame
-from library import level1_collectibles
-from library import level2_collectibles
-from library import level3_collectibles
 
 
 class Maze:
@@ -35,34 +32,6 @@ class Maze:
         self._jumpscare = False
         self._touching_wall = False
         self._finish_level = False
-        self._collectibles = {}
-
-    def collectibles_locations(self):
-        """
-        Set collectibles based on level.
-        """
-        if self._level == 1:
-            self._collectibles = level1_collectibles
-        if self._level == 2:
-            self._collectibles = level2_collectibles
-        self._collectibles = level3_collectibles
-
-    def check_collectible(self, x_location, y_location):
-        """
-        When a collectible is picked up, remove it from the board and add
-        points to the player's score.
-
-        Args:
-            x_location: An integer that represents the x index at which the
-            player is located
-            y_location: An integer that represents the y index at which the
-            player is located
-        """
-        if (x_location, y_location) in self._collectibles:
-            self._collectibles[(x_location, y_location)] = False
-            self._score += 1
-
-            # Somehow stop showing the image after this ish
 
     def get_maze(self):
         """

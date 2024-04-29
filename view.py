@@ -2,12 +2,14 @@
 Maze game view.
 """
 
-import pygame
 from abc import ABC, abstractmethod
+
+import pygame
 
 WIDTH = 800
 HEIGHT = 600
 FPS = 60
+GREEN = (92, 184, 28)
 
 
 class MazeView(ABC):
@@ -36,9 +38,21 @@ class MazeView(ABC):
         """
 
     @abstractmethod
-    def button(self, x, y, image):
+    def button(self, x, y, image, surface):
         """
         Implementations of this method should display a button.
+        """
+
+    @abstractmethod
+    def background_image(self, path):
+        """
+        Implementations of this method should display the image at the given path as the background.
+        """
+
+    @abstractmethod
+    def draw_level(self, level):
+        """
+        Implementations of this method should display the maze of the given level.
         """
 
 
@@ -58,7 +72,6 @@ class PygameView(MazeView):
         """
         Show the player's position.
         """
-        self._screen.fill("white")
         timer.tick(FPS)
         pygame.draw.circle(self._screen, "pink", mouse_position, 10)
         pygame.display.flip()
@@ -71,13 +84,7 @@ class PygameView(MazeView):
         self.rect.topleft = (x, y)
 
         surface.blit(self.image, (self.rect.x, self.rect.y))
-
-    # display board
-    # visuals and stuff
-    # make a start button at the beginning
-    # render all the collectibles
-    # render the mouse character
-    # jumpscare that breaks out of game loop and display image
+        pygame.display.flip()
 
     def background_image(self, path):
         """ """
@@ -89,11 +96,18 @@ class PygameView(MazeView):
             image, (int(width * scale), int(height * scale))
         )
         self._screen.blit(image, (0, 0))
+        pygame.display.flip()
 
-    def levels(self, level):
+    def draw_level(self, level):
         """ """
-        GREEN = (92, 184, 28)
-        for i in range len(level):
+        for i in range(len(level)):
             pygame.draw.rect(self._screen, GREEN, level(i))
             i += 1
-            
+            pygame.display.flip()
+
+    # display board
+    # visuals and stuff
+    # make a start button at the beginning
+    # render all the collectibles
+    # render the mouse character
+    # jumpscare that breaks out of game loop and display image

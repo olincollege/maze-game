@@ -31,10 +31,16 @@ class MazeController(ABC):
         """
 
     @abstractmethod
-    def clickButton(self, x, y, image):
+    def click_button(self, x, y, image):
         """
         Implementations of this method should check if a button is clicked or not.
         """
+
+    # @abstractmethod
+    # def quit_game(self):
+    #     """
+    #     Implementations of this method should allow users to quit the game.
+    #     """
 
 
 class PygameController(MazeController):
@@ -50,7 +56,7 @@ class PygameController(MazeController):
         mouse_position = pygame.mouse.get_pos()
         return mouse_position
 
-    def clickButton(self, x, y, image):
+    def click_button(self, x, y, image):
         """
         Check if a button is clicked.
         """
