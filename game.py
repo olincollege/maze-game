@@ -2,6 +2,9 @@ import pygame
 from maze import Maze
 from view import PygameView
 from controller import PygameController
+from Levels import Level_1
+from Levels import Level_2
+from Levels import Level_3
 
 timer = pygame.time.Clock()
 

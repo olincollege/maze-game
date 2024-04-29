@@ -62,3 +62,22 @@ class PygameView(MazeView):
         # render all the collectibles
         # render the mouse character
         # jumpscare that breaks out of game loop and display image
+
+    def background_image(self, path):
+        """ """
+        image = pygame.image.load(path)
+        width = image.get_width()
+        height = image.get_height()
+        scale = 3
+        image = pygame.transform.scale(
+            image, (int(width * scale), int(height * scale))
+        )
+        self._screen.blit(image, (0, 0))
+
+    def levels(self, level):
+        """ """
+        GREEN = (92, 184, 28)
+        for i in range len(level):
+            pygame.draw.rect(self._screen, GREEN, level(i))
+            i += 1
+            
