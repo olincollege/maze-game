@@ -29,7 +29,7 @@ your repository for assessment, etc.
   display the screen and other visual elements are here.
 * controller.py: The file that has the Controller class. It translates inputs
   from the players into calls to the appropriate methods in the board.
-* Levels.py: The file that holds all our level designs.
+* library.py: The file that holds all our level designs.
 * img/: The folder storing the images we used for the game.
   * start_btn.png: The start button design.
   * test.png: The green grass used as borders.
