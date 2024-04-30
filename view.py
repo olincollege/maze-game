@@ -6,13 +6,15 @@ from abc import ABC, abstractmethod
 
 import pygame
 
+from library import maps
+
 WIDTH = 800
 HEIGHT = 600
 FPS = 60
 GREEN = (92, 184, 28)
-BUTTON_X = 303
-BUTTON_Y = 500
-BUTTON_SCALE = 0.55
+START_X = 303
+START_Y = 500
+START_SCALE = 0.55
 
 
 class MazeView(ABC):
@@ -86,11 +88,11 @@ class PygameView(MazeView):
         transformed_image = pygame.transform.scale(
             image,
             (
-                int(image.get_width() * BUTTON_SCALE),
-                int(image.get_height() * BUTTON_SCALE),
+                int(image.get_width() * START_SCALE),
+                int(image.get_height() * START_SCALE),
             ),
         )
-        self._screen.blit(transformed_image, (BUTTON_X, BUTTON_Y))
+        self._screen.blit(transformed_image, (START_X, START_Y))
         pygame.display.flip()
 
     def background_image(self, path):
@@ -110,10 +112,9 @@ class PygameView(MazeView):
         """
         Display the corresponding maze for the level.
         """
-        for i in range(len(level)):
-            pygame.draw.rect(self._screen, GREEN, level(i))
+        for i, rectangle in enumerate(maps[level]):
+            pygame.draw.rect(self._screen, GREEN, rectangle)
             i += 1
-            pygame.display.flip()
 
     # display board
     # visuals and stuff

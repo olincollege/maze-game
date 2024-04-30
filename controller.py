@@ -3,12 +3,9 @@ Maze controller.
 """
 
 from abc import ABC, abstractmethod
+from maze import Maze
 
 import pygame
-
-from view import BUTTON_SCALE
-from view import BUTTON_X
-from view import BUTTON_Y
 
 
 class MazeController(ABC):
@@ -30,22 +27,10 @@ class MazeController(ABC):
         return self._board
 
     @abstractmethod
-    def mouse_position(self):
-        """
-        Implementations of this method should get and return the mouse's position.
-        """
-
-    @abstractmethod
-    def click_button(self, path):
+    def click_button(self, path, x, y, scale):
         """
         Implementations of this method should check if a button is clicked or not.
         """
-
-    # @abstractmethod
-    # def quit_game(self):
-    #     """
-    #     Implementations of this method should allow users to quit the game.
-    #     """
 
 
 class PygameController(MazeController):
@@ -54,14 +39,7 @@ class PygameController(MazeController):
         pygame interface.
     """
 
-    def mouse_position(self):
-        """
-        Get the mouse position so that the player can move!!!
-        """
-        mouse_position = pygame.mouse.get_pos()
-        return mouse_position
-
-    def click_button(self, path):
+    def click_button(self, path, x, y, scale):
         """
         Check if a button is clicked.
         """
@@ -70,14 +48,14 @@ class PygameController(MazeController):
         transformed_image = pygame.transform.scale(
             image,
             (
-                int(image.get_width() * BUTTON_SCALE),
-                int(image.get_height() * BUTTON_SCALE),
+                int(image.get_width() * scale),
+                int(image.get_height() * scale),
             ),
         )
         rect = transformed_image.get_rect()
-        rect.topleft = (BUTTON_X, BUTTON_Y)
+        rect.topleft = (x, y)
 
-        position = self.mouse_position()
+        position = pygame.mouse.get_pos()
 
         if rect.collidepoint(position):
             if pygame.mouse.get_pressed()[0] == 1 and clicked is False:

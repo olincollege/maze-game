@@ -3,6 +3,10 @@ Maze implementation.
 """
 
 import pygame
+from library import endings
+from library import level_1_ending
+
+MAX_LEVEL = 3
 
 
 class Maze:
@@ -33,37 +37,43 @@ class Maze:
         self._touching_wall = False
         self._finish_level = False
 
-    def get_maze(self):
+    def level(self):
         """
-        Locate the file based on the player's level.
+        Returns the player's current level.
+        """
+        return self._level
 
-        Returns:
-            A string representing the path to the csv representing the level
-                map.
+    def jumpscare(self):
         """
-        if self._level == 1:
-            return "Levels/level_1.csv"
-        if self._level == 2:
-            return "Levels/level_2.csv"
-        return "Levels/level_3.csv"
+        Returns True if the jumpscare has been triggered, otherwise False.
+        """
+        return self._jumpscare
+
+    def increase_level(self):
+        """
+        Increase the level, if possible.
+        """
+        increased_level = self._level + 1
+        if increased_level > MAX_LEVEL:
+            self._level = MAX_LEVEL
+        else:
+            self._level = increased_level
+
+    def check_ending(self):
+        """
+        Check if the current level has been completed or not.
+        """
+        rect = endings[self._level]
+        position = pygame.mouse.get_pos()
+        if rect.collidepoint(position):
+            self.increase_level()
 
     def __repr__(self):
         """
         Returns a string with the player location, amount of points, and level.
         """
         return (
-            f"The player location is:{self.get_position()}\n"
+            f"The player location is:{pygame.mouse.get_pos()}\n"
             "The amount of points collected is:{self._score}\n"
             "The current level is:{self._level}"
         )
-
-    def get_position(self):
-        """
-        Returns a tuple of the current position of the player
-        """
-        x, y = pygame.mouse.get_pos()
-        pos = (x, y)
-        return pos
-
-    # we are going to have to call get mouse position to check if in boundaries
-    # hella pygame

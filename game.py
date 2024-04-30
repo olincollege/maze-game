@@ -6,13 +6,10 @@ import pygame
 
 from maze import Maze
 from view import PygameView
-from view import BUTTON_X
-from view import BUTTON_Y
-from view import BUTTON_SCALE
+from view import START_X
+from view import START_Y
+from view import START_SCALE
 from controller import PygameController
-from library import Level_1
-from library import Level_2
-from library import Level_3
 
 timer = pygame.time.Clock()
 
@@ -22,33 +19,34 @@ controller = PygameController(maze)
 
 run = True
 button_display = True
-level = 1
 while run:
     view.background_image("img/test.png")
-    while button_display:
-        mouse_position = controller.mouse_position()
+    while run and button_display:
+        mouse_position = pygame.mouse.get_pos()
         view.background_image("img/test.png")
         view.button("img/start_btn.png")
-        if controller.click_button("img/start_btn.png"):
+        if controller.click_button(
+            "img/start_btn.png", START_X, START_Y, START_SCALE
+        ):
             button_display = False
             view.background_image("img/test.png")
             pygame.display.flip()
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                button_display = False
+                run = False
 
-    # while level < 4:
-    # mouse_position = controller.mouse_position()
-    # view.background_image("img/test.png")
-    # view.character(mouse_position, timer)
+    while run and not maze.jumpscare():
+        mouse_position = pygame.mouse.get_pos()
+        view.background_image("img/test.png")
+        view.draw_level(maze.level())
+        view.character(mouse_position, timer)
 
-    # for event in pygame.event.get():
-    #     if event.type == pygame.QUIT:
-    #         run = False
+        maze.check_ending()
 
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            run = False
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                run = False
+
 
 pygame.quit()
