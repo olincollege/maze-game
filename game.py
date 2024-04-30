@@ -8,6 +8,7 @@ from maze import Maze
 from view import PygameView
 from view import BUTTON_X
 from view import BUTTON_Y
+from view import BUTTON_SCALE
 from controller import PygameController
 from library import Level_1
 from library import Level_2
@@ -26,15 +27,16 @@ while run:
     view.background_image("img/test.png")
     while button_display:
         mouse_position = controller.mouse_position()
+        view.background_image("img/test.png")
         view.button("img/start_btn.png")
-        view.character(mouse_position, timer)
-        if controller.click_button(BUTTON_X, BUTTON_Y, "img/start_btn.png", 1):
+        if controller.click_button("img/start_btn.png"):
             button_display = False
             view.background_image("img/test.png")
+            pygame.display.flip()
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                run = False
+                button_display = False
 
     # while level < 4:
     # mouse_position = controller.mouse_position()
