@@ -2,8 +2,13 @@
 Maze controller.
 """
 
-import pygame
 from abc import ABC, abstractmethod
+
+import pygame
+
+from view import BUTTON_SCALE
+from view import BUTTON_X
+from view import BUTTON_Y
 
 
 class MazeController(ABC):
@@ -31,7 +36,7 @@ class MazeController(ABC):
         """
 
     @abstractmethod
-    def click_button(self, x, y, image):
+    def click_button(self, path):
         """
         Implementations of this method should check if a button is clicked or not.
         """
@@ -56,7 +61,7 @@ class PygameController(MazeController):
         mouse_position = pygame.mouse.get_pos()
         return mouse_position
 
-    def click_button(self, x, y, path, scale):
+    def click_button(self, path):
         """
         Check if a button is clicked.
         """
@@ -64,9 +69,13 @@ class PygameController(MazeController):
         image = pygame.image.load(path)
         transformed_image = pygame.transform.scale(
             image,
-            (int(image.get_width() * scale), int(image.get_height() * scale)),
+            (
+                int(image.get_width() * BUTTON_SCALE),
+                int(image.get_height() * BUTTON_SCALE),
+            ),
         )
         rect = transformed_image.get_rect()
+        rect.topleft = (BUTTON_X, BUTTON_Y)
 
         position = self.mouse_position()
 
@@ -78,6 +87,3 @@ class PygameController(MazeController):
             clicked = False
 
         return clicked
-
-    # FUNCTIONS TO IMPLEMENT
-    # get mouse click for start button ya
