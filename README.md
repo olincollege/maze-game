@@ -10,34 +10,26 @@ At the end is a surprise jumpscare, catching the concentrated player off-guard. 
 are three levels, each increasingly more challenging, so the player will have to see 
 when the jumpscare pops out!
 
-## How to Use
-
-Click on the "Use this template" button in the top right corner to create a new
-repository based on this template. If this is for a class project, we ask that
-you keep it in the `olincollege` GitHub organization, and that you refrain from
-keeping the repository private. This will ensure that relevant people can access
-your repository for assessment, etc.
-
 ## Files and Directories
 
 ### Game Files
 
-* game.py: The file that runs the game.
-* maze.py: The file that has the Model class. This file contains
+* `game.py`: The file that runs the game.
+* `maze.py`: The file that has the Model class. This file contains
   all the classes and methods pertaining to saving game and user data.
-* view.py: The file that has the View class. The classes and methods that
+* `view.py`: The file that has the View class. The classes and methods that
   display the screen and other visual elements are here.
-* controller.py: The file that has the Controller class. It translates inputs
+* `controller.py`: The file that has the Controller class. It translates inputs
   from the players into calls to the appropriate methods in the board.
-* library.py: The file that holds all our level designs.
-* img/: The folder storing the images we used for the game.
-  * start_btn.png: The start button design.
-  * test.png: The green grass used as borders.
+* `library.py`: The file that holds all our level designs.
+* `img/`: The folder storing the images we used for the game.
+  * `start_btn.png`: The start button design.
+  * `test.png`: The green grass used as borders.
  
 ### Website Files
 
-* docs/: The folder containing anything pertaining to the website.
-  * index.md: The file that contains the markdown code for the GitHub website.
+* `docs/`: The folder containing anything pertaining to the website.
+  * `index.md`: The file that contains the markdown code for the GitHub website.
 
 ## How to Download
 
