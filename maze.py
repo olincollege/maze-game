@@ -4,7 +4,7 @@ Maze implementation.
 
 import pygame
 from library import endings
-from library import level_1_ending
+from library import maps
 
 MAX_LEVEL = 3
 
@@ -59,6 +59,12 @@ class Maze:
         else:
             self._level = increased_level
 
+    def reset_level(self):
+        """
+        Go back to level 1.
+        """
+        self._level = 1
+
     def check_ending(self):
         """
         Check if the current level has been completed or not.
@@ -67,6 +73,17 @@ class Maze:
         position = pygame.mouse.get_pos()
         if rect.collidepoint(position):
             self.increase_level()
+
+    def collide_borders(self):
+        """
+        Check if the player has gone out of the borders.
+        """
+        position = pygame.mouse.get_pos()
+        for _, rectangle in enumerate(maps[self._level]):
+            rect = rectangle
+            if rect.collidepoint(position):
+                return False
+        return True
 
     def __repr__(self):
         """
