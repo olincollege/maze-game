@@ -56,12 +56,18 @@ class PygameController(MazeController):
         mouse_position = pygame.mouse.get_pos()
         return mouse_position
 
-    def click_button(self, x, y, image):
+    def click_button(self, x, y, path, scale):
         """
         Check if a button is clicked.
         """
         clicked = False
-        rect = image.get_rect()
+        image = pygame.image.load(path)
+        transformed_image = pygame.transform.scale(
+            image,
+            (int(image.get_width() * scale), int(image.get_height() * scale)),
+        )
+        rect = transformed_image.get_rect()
+
         position = self.mouse_position()
 
         if rect.collidepoint(position):
@@ -70,6 +76,8 @@ class PygameController(MazeController):
 
         if pygame.mouse.get_pressed()[0] == 0:
             clicked = False
+
+        return clicked
 
     # FUNCTIONS TO IMPLEMENT
     # get mouse click for start button ya

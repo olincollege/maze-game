@@ -1,6 +1,15 @@
 import pygame
 import sys
-from PIL import Image
+
+from maze import Maze
+from view import PygameView
+from controller import PygameController
+
+timer = pygame.time.Clock()
+
+maze = Maze()
+view = PygameView(maze)
+controller = PygameController(maze)
 
 # Initialize Pygame
 pygame.init()
@@ -45,10 +54,8 @@ GREEN = (92, 184, 28)
 
 # Function to draw the rectangle in the middle of the screen
 def draw_rectangle(screen):
-    pygame.draw.rect(screen, GREEN, pygame.Rect(0, 225, 200, 75))
-    pygame.draw.rect(screen, GREEN, pygame.Rect(200, 225, 50, 300))
-    pygame.draw.rect(screen, GREEN, pygame.Rect(200, 525, 375, 40))
-    pygame.draw.rect(screen, GREEN, pygame.Rect(575, 0, 40, 565))
+    pygame.draw.rect(screen, GREEN, pygame.Rect(300, 175, 150, 500))
+    pygame.draw.rect(screen, GREEN, pygame.Rect(300, 175, 500, 100))
 
 
 # Main game loop
@@ -65,6 +72,7 @@ while running:
 
     # Draw the rectangle in the middle of the screen
     draw_rectangle(screen)
+    view.button("img/start_btn.png")
 
     # Update the display
     pygame.display.flip()
