@@ -10,6 +10,9 @@ WIDTH = 800
 HEIGHT = 600
 FPS = 60
 GREEN = (92, 184, 28)
+BUTTON_X = 303
+BUTTON_Y = 500
+BUTTON_SCALE = 0.55
 
 
 class MazeView(ABC):
@@ -38,7 +41,7 @@ class MazeView(ABC):
         """
 
     @abstractmethod
-    def button(self, x, y, image, surface):
+    def button(self, path, scale):
         """
         Implementations of this method should display a button.
         """
@@ -63,7 +66,6 @@ class PygameView(MazeView):
     """
 
     def __init__(self, board):
-        pygame.init()
         self._level = 1
         self._screen = pygame.display.set_mode([WIDTH, HEIGHT])
         pygame.display.set_caption("Maze Game")
@@ -76,18 +78,25 @@ class PygameView(MazeView):
         pygame.draw.circle(self._screen, "pink", mouse_position, 10)
         pygame.display.flip()
 
-    def button(self, x, y, image, surface):
+    def button(self, path):
         """
         Display a button.
         """
-        self.rect = image.get_rect()
-        self.rect.topleft = (x, y)
-
-        surface.blit(self.image, (self.rect.x, self.rect.y))
+        image = pygame.image.load(path)
+        transformed_image = pygame.transform.scale(
+            image,
+            (
+                int(image.get_width() * BUTTON_SCALE),
+                int(image.get_height() * BUTTON_SCALE),
+            ),
+        )
+        self._screen.blit(transformed_image, (BUTTON_X, BUTTON_Y))
         pygame.display.flip()
 
     def background_image(self, path):
-        """ """
+        """
+        Display the background image.
+        """
         image = pygame.image.load(path)
         width = image.get_width()
         height = image.get_height()
@@ -96,10 +105,11 @@ class PygameView(MazeView):
             image, (int(width * scale), int(height * scale))
         )
         self._screen.blit(image, (0, 0))
-        pygame.display.flip()
 
     def draw_level(self, level):
-        """ """
+        """
+        Display the corresponding maze for the level.
+        """
         for i in range(len(level)):
             pygame.draw.rect(self._screen, GREEN, level(i))
             i += 1
