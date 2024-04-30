@@ -15,6 +15,8 @@ GREEN = (92, 184, 28)
 START_X = 303
 START_Y = 500
 START_SCALE = 0.55
+JUMPSCARE_X_SCALE = 1
+JUMPSCARE_Y_SCALE = 0.6
 
 
 class MazeView(ABC):
@@ -116,9 +118,15 @@ class PygameView(MazeView):
             pygame.draw.rect(self._screen, GREEN, rectangle)
             i += 1
 
-    # display board
-    # visuals and stuff
-    # make a start button at the beginning
-    # render all the collectibles
-    # render the mouse character
-    # jumpscare that breaks out of game loop and display image
+    def jumpscare_image(self, path):
+        """
+        Display the jumpscare image.
+        """
+        image = pygame.image.load(path)
+        width = image.get_width()
+        height = image.get_height()
+        image = pygame.transform.scale(
+            image,
+            (int(width * JUMPSCARE_X_SCALE), int(height * JUMPSCARE_Y_SCALE)),
+        )
+        self._screen.blit(image, (0, 0))

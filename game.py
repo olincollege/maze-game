@@ -19,7 +19,7 @@ controller = PygameController(maze)
 
 run = True
 button_display = True
-while run:
+while run and not maze.jumpscare():
     view.background_image("img/test.png")
     while run and button_display:
         mouse_position = pygame.mouse.get_pos()
@@ -37,7 +37,7 @@ while run:
                 run = False
         border_collided = False
 
-    while run and not border_collided:
+    while run and not border_collided and not maze.jumpscare():
         button_display = True
         mouse_position = pygame.mouse.get_pos()
         view.background_image("img/test.png")
@@ -52,5 +52,13 @@ while run:
         border_collided = maze.collide_borders()
     maze.reset_level()
 
+if maze.jumpscare():
+    ending_screen = True
+    while ending_screen:
+        view.jumpscare_image("img/jumpscare.jpg")
+        pygame.display.flip()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                ending_screen = False
 
 pygame.quit()

@@ -1,3 +1,7 @@
+"""
+Library of lists to use to make rectangles for the maps.
+"""
+
 import pygame
 
 level_1 = [

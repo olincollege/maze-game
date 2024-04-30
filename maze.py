@@ -72,6 +72,8 @@ class Maze:
         rect = endings[self._level]
         position = pygame.mouse.get_pos()
         if rect.collidepoint(position):
+            if self._level == MAX_LEVEL:
+                self._jumpscare = True
             self.increase_level()
 
     def collide_borders(self):
