@@ -29,6 +29,9 @@ photo!
 
 ![Team photo!!!!!](team!!.png)
 
+## Game Runthrough
+![Game runthrough](demo_video.mp4)
+
 ## GitHub Page
 
 Below is the link to our GitHub page:
