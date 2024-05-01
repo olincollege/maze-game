@@ -1,40 +1,65 @@
 import pygame
+import sys
+from PIL import Image
 
-from library import level_1, level_2, level_3
-from maze import Maze
-from view import PygameView
-from view import START_X
-from view import START_Y
-from view import START_SCALE
-from controller import PygameController
+Level_1 = [
+    pygame.Rect(300, 175, 150, 500),
+    pygame.Rect(300, 175, 500, 100),
+]
 
-timer = pygame.time.Clock()
+Level_2 = [
+    pygame.Rect(400, 175, 500, 150),
+    pygame.Rect(175, 100, 350, 75),
+    pygame.Rect(175, 325, 350, 75),
+    pygame.Rect(125, 100, 75, 300),
+    pygame.Rect(0, 225, 200, 75),
+]
 
-maze = Maze()
-view = PygameView(maze)
-controller = PygameController(maze)
 
-run = True
-while run and not maze.jumpscare():
-    view.background_image("img/test.png")
-    while run:
-        mouse_position = pygame.mouse.get_pos()
-        view.background_image("img/test.png")
-        view.background_image("img/test.png")
-        pygame.display.flip()
+# Set the width and height of the screen
+SCREEN_WIDTH = 800
+SCREEN_HEIGHT = 600
+screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+pygame.display.set_caption("Rectangle Test")
 
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                run = False
-        border_collided = False
+# Define colors
+BLACK = (0, 0, 0)
+WHITE = (255, 255, 255)
+RED = (255, 0, 0)
 
-    while run:
-        mouse_position = pygame.mouse.get_pos()
-        view.background_image("img/test.png")
-        view.draw_level(level_1)
-        view.character(mouse_position, timer)
 
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                run = False
-        border_collided = maze.collide_borders()
+# Function to draw the rectangle in the middle of the screen
+def draw_rectangle(screen):
+    rect = pygame.Rect(300, 175, 150, 500)
+    # pygame.draw.rect(screen, BLACK, rect)
+    pygame.draw.rect(screen, BLACK, pygame.Rect(650, 125, 350, 75))
+    pygame.draw.rect(screen, BLACK, pygame.Rect(650, 125, 75, 300))
+    pygame.draw.rect(screen, BLACK, pygame.Rect(550, 425, 175, 75))
+    pygame.draw.rect(screen, BLACK, pygame.Rect(550, 25, 75, 400))
+    pygame.draw.rect(screen, BLACK, pygame.Rect(150, 25, 400, 50))
+    pygame.draw.rect(screen, BLACK, pygame.Rect(150, 25, 50, 150))
+    pygame.draw.rect(screen, BLACK, pygame.Rect(150, 125, 300, 50))
+    pygame.draw.rect(screen, BLACK, pygame.Rect(450, 125, 50, 100))
+    pygame.draw.rect(screen, BLACK, pygame.Rect(0, 225, 500, 75))
+
+
+# Main game loop
+running = True
+while running:
+    # Check for events
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+    # Fill the screen with white color
+    screen.fill(WHITE)
+
+    # Draw the rectangle in the middle of the screen
+    draw_rectangle(screen)
+
+    # Update the display
+    pygame.display.flip()
+
+# Quit Pygame
+pygame.quit()
+sys.exit()
