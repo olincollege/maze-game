@@ -9,11 +9,11 @@ fun's sake, our team means no harm!
 
 Here's what the game looks like when starting it up:
 
-![Start of Game](scs/Screenshot from 2024-04-30 15-52-55.png)
+![Start](start.png)
 
 Here's what the game looks like when the game begins:
 
-![Game Starts](scs/Screenshot from 2024-04-30 15-53-05.png)
+![Level 1](level1.png)
 
 Have fun and don't scare your friends too hard! (^_^)
 
@@ -27,7 +27,10 @@ Have fun and don't scare your friends too hard! (^_^)
 Our team consists of Karis Moon, Khoi Nguyen, and Rishika Chakravorty. Below is a team 
 photo!
 
-insert photo here
+![Team photo!!!!!](team!!.png)
+
+## Presentation
+
 
 ## GitHub Page
 
