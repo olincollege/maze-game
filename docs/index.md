@@ -9,11 +9,11 @@ fun's sake, our team means no harm!
 
 Here's what the game looks like when starting it up:
 
-![Start of Game](scs/Screenshot from 2024-04-30 15-52-55.png)
+![Start of Game](docs/screenshot1.png)
 
 Here's what the game looks like when the game begins:
 
-![Game Starts](scs/Screenshot from 2024-04-30 15-53-05.png)
+![Game Starts](docs/screenshot2.png)
 
 Have fun and don't scare your friends too hard! (^_^)
 
