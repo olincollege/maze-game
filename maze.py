@@ -27,6 +27,7 @@ class Maze:
         self._level = 1
         self._jumpscare = False
 
+    # test
     def level(self):
         """
         Returns the player's current level.
@@ -46,6 +47,7 @@ class Maze:
         return self._jumpscare
 
     def increase_level(self):
+        # you can test this using a property after setting (make sure it doesnt >max)
         """
         Increase the level, if possible.
         """
@@ -56,6 +58,7 @@ class Maze:
             self._level = increased_level
 
     def reset_level(self):
+        # testable
         """
         Go back to level 1.
         """
