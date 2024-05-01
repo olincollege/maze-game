@@ -80,6 +80,7 @@ class PygameView(MazeView):
     """
 
     def __init__(self, board):
+        super().__init__(board)
         self._screen = pygame.display.set_mode([WIDTH, HEIGHT])
         pygame.display.set_caption("Maze Game")
 
