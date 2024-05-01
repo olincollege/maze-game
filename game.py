@@ -2,7 +2,6 @@
 Implement the maze
 """
 
-import random
 import pygame
 
 from maze import Maze
