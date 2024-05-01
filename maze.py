@@ -27,7 +27,6 @@ class Maze:
         self._level = 1
         self._jumpscare = False
 
-    # test
     def level(self):
         """
         Returns the player's current level.
@@ -36,6 +35,15 @@ class Maze:
             An int representing the player's current level.
         """
         return self._level
+
+    def set_level(self, level):
+        """
+        Sets the private variable level
+
+        Args:
+            An integer that represents the new level
+        """
+        self._level = level
 
     def jumpscare(self):
         """
@@ -47,7 +55,6 @@ class Maze:
         return self._jumpscare
 
     def increase_level(self):
-        # you can test this using a property after setting (make sure it doesnt >max)
         """
         Increase the level, if possible.
         """
@@ -58,25 +65,23 @@ class Maze:
             self._level = increased_level
 
     def reset_level(self):
-        # testable
         """
         Go back to level 1.
         """
         self._level = 1
 
-    def check_ending(self):
+    def check_ending(self, position):
         """
         Check if the current level has been completed or not.
         Trigger the jumpscare if the final level is completed.
         """
         rect = endings[self._level]
-        position = pygame.mouse.get_pos()
         if rect.collidepoint(position):
             if self._level == MAX_LEVEL:
                 self._jumpscare = True
             self.increase_level()
 
-    def collide_borders(self):
+    def collide_borders(self, position):
         """
         Check if the player has gone out of the borders.
 
@@ -84,12 +89,17 @@ class Maze:
             A bool representing whether or not the player has gone out
                 of the borders.
         """
-        position = pygame.mouse.get_pos()
         for _, rectangle in enumerate(maps[self._level]):
             rect = rectangle
             if rect.collidepoint(position):
                 return False
         return True
+
+    def get_position(self):
+        """
+        Returns a tuple of integers that represent the position of the mouse
+        """
+        return pygame.mouse.get_pos()
 
     def random_ending(self):
         """

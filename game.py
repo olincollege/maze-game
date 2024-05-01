@@ -46,11 +46,10 @@ def main():
             view.background_image("img/test.png")
             view.draw_level(maze.level())
             view.character(mouse_position, timer)
-
-            maze.check_ending()
-
+            position = maze.get_position()
+            maze.check_ending(position)
             maze.check_quit_pygame()
-            border_collided = maze.collide_borders()
+            border_collided = maze.collide_borders(position)
         maze.reset_level()
 
     if maze.jumpscare():
