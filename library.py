@@ -54,6 +54,19 @@ level_5 = [
 
 level_5_ending = pygame.Rect(575, 0, 40, 50)
 
+test_level = [
+    pygame.Rect(0, 0, 800, 50),
+    pygame.Rect(0, 0, 50, 600),
+    pygame.Rect(0, 550, 800, 50),
+    pygame.Rect(750, 0, 50, 600),
+    pygame.Rect(0, 300, 300, 50),
+    pygame.Rect(300, 300, 50, 150),
+    pygame.Rect(300, 400, 250, 50),
+    pygame.Rect(500, 100, 50, 350),
+    pygame.Rect(200, 100, 350, 50),
+    pygame.Rect(200, 0, 50, 150),
+]
+
 maps = {1: level_1, 2: level_2, 3: level_3, 4: level_4, 5: level_5}
 endings = {
     1: level_1_ending,
