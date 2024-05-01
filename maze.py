@@ -110,7 +110,7 @@ class Maze:
         """
         choice = random.randint(1, 2)
         if choice == 1:
-            ending = "hanni"
+            ending = "herobrine"
         else:
             ending = "jumpscare"
 
