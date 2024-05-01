@@ -3,14 +3,16 @@ Maze controller.
 """
 
 from abc import ABC, abstractmethod
-from maze import Maze
 
 import pygame
 
 
 class MazeController(ABC):
     """
-    Allows the player to control the status of the board.
+    Allows the player to control the status of the maze.
+
+    Attributes:
+        _board: An instance of Maze representing the status of the maze.
     """
 
     def __init__(self, board):
@@ -27,21 +29,33 @@ class MazeController(ABC):
         return self._board
 
     @abstractmethod
-    def click_button(self, path, x, y, scale):
+    def click_button(self, path, x_position, y_position, scale):
         """
-        Implementations of this method should check if a button is clicked or not.
+        Implementations of this method should check if a button is
+            clicked or not.
         """
 
 
 class PygameController(MazeController):
     """
-    Extending MazeController to control the status of the TicTacToe board using
+    Extending MazeController to control the status of the maze using
         pygame interface.
     """
 
-    def click_button(self, path, x, y, scale):
+    def click_button(self, path, x_position, y_position, scale):
         """
         Check if a button is clicked.
+
+        Args:
+            path: A string representing the path to the image of the button.
+            x_position: An int representing the x position of the top
+                left corner of the button.
+            y_position: An int representing the y position of the top
+                left corner of the button.
+            scale: An int representing how much the image is being scaled by.
+
+        Returns:
+            A bool representing whether or not the button has been clicked.
         """
         clicked = False
         image = pygame.image.load(path)
@@ -53,7 +67,7 @@ class PygameController(MazeController):
             ),
         )
         rect = transformed_image.get_rect()
-        rect.topleft = (x, y)
+        rect.topleft = (x_position, y_position)
 
         position = pygame.mouse.get_pos()
 
