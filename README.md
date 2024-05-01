@@ -1,4 +1,4 @@
-# Python Project Template Repository
+# Maze-Prank Game
 
 ## Overview
 
@@ -9,6 +9,18 @@ through the maze and cannot touch outside the path, otherwise the game will rest
 At the end is a surprise jumpscare, catching the concentrated player off-guard. There 
 are three levels, each increasingly more challenging, so the player will have to see 
 when the jumpscare pops out!
+
+## A Sneak Peek
+
+Here's what the game looks like when starting it up:
+
+![Start of Game](docs/screenshot1.png)
+
+Here's what the game looks like when the game begins:
+
+![Game Starts](docs/screenshot2.png)
+
+Have fun and don't scare your friends too hard! (^_^)
 
 ## Files and Directories
 
@@ -30,6 +42,8 @@ when the jumpscare pops out!
 
 * `docs/`: The folder containing anything pertaining to the website.
   * `index.md`: The file that contains the markdown code for the GitHub website.
+  * `screenshot1.png`: A screenshot of the start of the game.
+  * `screenshot2.png`: A screenshot of the first level of the game.
 
 ## How to Download
 
@@ -39,11 +53,9 @@ To download the Maze Prank Game, follow these steps:
 2. Click on the green "Code" button.
 3. Select "Download ZIP" from the dropdown menu.
 4. Once the ZIP file is downloaded, extract its contents to a folder on your computer.
-5. Open the folder containing the extracted files in your preferred code editor, such as VSCode. Make sure you have Python and Pygame installed on your system.
-6. Run the game.py file from the extracted folder to launch the game.
+5. Open the folder containing the extracted files in your preferred code editor, such as VSCode.
+   Make sure you have Python and Pygame installed on your system.
+7. Run the `game.py` file from the extracted folder to launch the game.
 
 Enjoy playing the Maze Prank Game!
 ```
-
-If you already have a `requirements.txt`, the above command will ask you to
-rerun the command with the `--force` flag to overwrite it.
