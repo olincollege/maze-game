@@ -9,7 +9,7 @@ fun's sake, our team means no harm!
 
 Here's what the game looks like when starting it up:
 
-![Start of Game](docs/screenshot1.png)
+![]("screenshot1.png")
 
 Here's what the game looks like when the game begins:
 
