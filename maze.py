@@ -2,6 +2,7 @@
 Maze implementation.
 """
 
+import random
 import pygame
 from library import endings
 from library import maps
@@ -86,6 +87,26 @@ class Maze:
             if rect.collidepoint(position):
                 return False
         return True
+
+    def random_ending(self):
+        """
+        Pick a random ending.
+        """
+        choice = random.randint(1, 2)
+        if choice == 1:
+            ending = "hanni"
+        else:
+            ending = "jumpscare"
+
+        return ending
+
+    def check_quit_pygame(self):
+        """
+        Check if pygame window should be closed.
+        """
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
 
     def __repr__(self):
         """

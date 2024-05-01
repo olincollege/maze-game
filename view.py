@@ -15,8 +15,10 @@ GREEN = (92, 184, 28)
 START_X = 303
 START_Y = 500
 START_SCALE = 0.55
-JUMPSCARE_X_SCALE = 1
-JUMPSCARE_Y_SCALE = 0.6
+HANNI_X_SCALE = 0.8
+HANNI_Y_SCALE = 0.8
+JUMPSCARE_X_SCALE = 1.2
+JUMPSCARE_Y_SCALE = 0.7
 
 
 class MazeView(ABC):
@@ -118,15 +120,26 @@ class PygameView(MazeView):
             pygame.draw.rect(self._screen, GREEN, rectangle)
             i += 1
 
-    def jumpscare_image(self, path):
+    def jumpscare_image(self, choice):
         """
         Display the jumpscare image.
         """
+        if choice == "hanni":
+            path = "img/Hanni.jpeg"
+        else:
+            path = "img/jumpscare.jpg"
+
         image = pygame.image.load(path)
         width = image.get_width()
         height = image.get_height()
+        if choice == "hanni":
+            x_scale = HANNI_X_SCALE
+            y_scale = HANNI_Y_SCALE
+        else:
+            x_scale = JUMPSCARE_X_SCALE
+            y_scale = JUMPSCARE_Y_SCALE
         image = pygame.transform.scale(
             image,
-            (int(width * JUMPSCARE_X_SCALE), int(height * JUMPSCARE_Y_SCALE)),
+            (int(width * x_scale), int(height * y_scale)),
         )
         self._screen.blit(image, (0, 0))

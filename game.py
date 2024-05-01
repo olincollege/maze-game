@@ -2,6 +2,7 @@
 Implement the maze
 """
 
+import random
 import pygame
 
 from maze import Maze
@@ -32,9 +33,7 @@ while run and not maze.jumpscare():
             view.background_image("img/test.png")
             pygame.display.flip()
 
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                run = False
+        maze.check_quit_pygame()
         border_collided = False
 
     while run and not border_collided and not maze.jumpscare():
@@ -46,19 +45,17 @@ while run and not maze.jumpscare():
 
         maze.check_ending()
 
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                run = False
+        maze.check_quit_pygame()
         border_collided = maze.collide_borders()
     maze.reset_level()
 
 if maze.jumpscare():
     ending_screen = True
+    ending = maze.random_ending()
+
     while ending_screen:
-        view.jumpscare_image("img/jumpscare.jpg")
+        view.jumpscare_image(ending)
         pygame.display.flip()
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                ending_screen = False
+        maze.check_quit_pygame()
 
 pygame.quit()
