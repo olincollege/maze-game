@@ -9,7 +9,7 @@ fun's sake, our team means no harm!
 
 Here's what the game looks like when starting it up:
 
-![](start.png)
+![Start](start.png)
 
 Here's what the game looks like when the game begins:
 
@@ -27,7 +27,7 @@ Have fun and don't scare your friends too hard! (^_^)
 Our team consists of Karis Moon, Khoi Nguyen, and Rishika Chakravorty. Below is a team 
 photo!
 
-insert photo here
+![Team photo!!!!!](team!!.png)
 
 ## GitHub Page
 
