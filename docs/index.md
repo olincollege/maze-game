@@ -9,11 +9,11 @@ fun's sake, our team means no harm!
 
 Here's what the game looks like when starting it up:
 
-![]("screenshot1.png")
+![](start.png)
 
 Here's what the game looks like when the game begins:
 
-![Game Starts](docs/screenshot2.png)
+![Level 1](level1.png)
 
 Have fun and don't scare your friends too hard! (^_^)
 
