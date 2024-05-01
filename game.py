@@ -61,3 +61,7 @@ def main():
             view.jumpscare_image(ending)
             pygame.display.flip()
             maze.check_quit_pygame()
+
+
+if __name__ == "__main__":
+    main()
