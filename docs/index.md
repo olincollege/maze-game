@@ -31,7 +31,7 @@ photo!
 
 ## Game Runthrough
 
-!(https://github.com/olincollege/maze-game/assets/98793310/fc3d1343-6eca-43de-9e95-eec39bff6c1c)
+https://github.com/olincollege/maze-game/assets/98793310/fc3d1343-6eca-43de-9e95-eec39bff6c1c
 
 ## GitHub Page
 
