@@ -31,6 +31,7 @@ photo!
 
 ## Presentation
 
+https://github.com/olincollege/maze-game/assets/98793310/b11d5dfd-ae3b-47f7-8e39-7154a93995f7
 
 ## GitHub Page
 
