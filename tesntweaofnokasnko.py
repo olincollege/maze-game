@@ -1,4 +1,16 @@
+"""
+Implement the maze
+"""
+
 import pygame
+
+from maze import Maze
+from view import PygameView
+from view import START_X
+from view import START_Y
+from view import START_SCALE
+from controller import PygameController
+
 import sys
 from PIL import Image
 
@@ -32,16 +44,19 @@ RED = (255, 0, 0)
 def draw_rectangle(screen):
     rect = pygame.Rect(300, 175, 150, 500)
     # pygame.draw.rect(screen, BLACK, rect)
-    pygame.draw.rect(screen, BLACK, pygame.Rect(650, 125, 350, 75))
-    pygame.draw.rect(screen, BLACK, pygame.Rect(650, 125, 75, 300))
-    pygame.draw.rect(screen, BLACK, pygame.Rect(550, 425, 175, 75))
-    pygame.draw.rect(screen, BLACK, pygame.Rect(550, 25, 75, 400))
-    pygame.draw.rect(screen, BLACK, pygame.Rect(150, 25, 400, 50))
-    pygame.draw.rect(screen, BLACK, pygame.Rect(150, 25, 50, 150))
-    pygame.draw.rect(screen, BLACK, pygame.Rect(150, 125, 300, 50))
-    pygame.draw.rect(screen, BLACK, pygame.Rect(450, 125, 50, 100))
-    pygame.draw.rect(screen, BLACK, pygame.Rect(0, 225, 500, 75))
+    pygame.draw.rect(screen, BLACK, pygame.Rect(0, 0, 800, 50))
+    pygame.draw.rect(screen, BLACK, pygame.Rect(0, 0, 50, 600))
+    pygame.draw.rect(screen, BLACK, pygame.Rect(0, 550, 800, 50))
+    pygame.draw.rect(screen, BLACK, pygame.Rect(750, 0, 50, 600))
+    pygame.draw.rect(screen, BLACK, pygame.Rect(0, 300, 300, 50))
+    pygame.draw.rect(screen, BLACK, pygame.Rect(300, 300, 50, 150))
+    pygame.draw.rect(screen, BLACK, pygame.Rect(300, 400, 250, 50))
+    pygame.draw.rect(screen, BLACK, pygame.Rect(500, 100, 50, 350))
+    pygame.draw.rect(screen, BLACK, pygame.Rect(200, 100, 350, 50))
+    pygame.draw.rect(screen, BLACK, pygame.Rect(200, 0, 50, 150))
 
+
+350
 
 # Main game loop
 running = True
